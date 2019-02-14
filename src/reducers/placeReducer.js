@@ -1,6 +1,6 @@
 // placeReducer.js
 
-import { ADD_PLACE,REMOVE_PLACE } from '../actions/types';
+import { ADD_PLACE, REMOVE_PLACE } from '../actions/types';
 
 import _ from 'lodash';
 
@@ -20,12 +20,11 @@ const placeReducer = (state = initialState, action) => {
         })
       };
       case REMOVE_PLACE:
-      console.log(state.places,'state places');
-      console.log('del id:',action.payload);
-      
+      // console.log(state.places,'state places');
+      // console.log('Store del id:',action.payload);
       return{
         ...state,
-        places: state.places.filter(place => place.key  !== action.payload.placeId)
+        places: state.places.filter(place => place.key  !== action.payload)
       }
     default:
       return state;

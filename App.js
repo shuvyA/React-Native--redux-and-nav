@@ -189,7 +189,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Button, FlatList } from 'react-native';
 import ListItem from './src/components/ListItem';
 import { connect } from 'react-redux';
-import { addPlace, removePlace } from './src/actions/place';
+import { addPlace , removePlace } from './src/actions/place';
 
 class App extends Component {
   
@@ -210,7 +210,8 @@ class App extends Component {
   }
   
   delItem = (item) => {
-    console.log('del item::',item );
+    // console.log('**********************************************');
+    // console.log('del item to app::', item );
     this.props.remove(item)
     
   }
@@ -242,7 +243,7 @@ class App extends Component {
           <View style={ styles.container }>
       <View style = { styles.inputContainer }>
         <TextInput
-          placeholder = "Seach Places"
+          placeholder = "Search Places"
           style = { styles.placeInput }
           value = { this.state.placeName }
           onChangeText = { this.placeNameChangeHandler }
@@ -284,7 +285,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  console.log(' mapStateToProps');
   
   return {
     places: state.places.places
@@ -292,15 +292,14 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  console.log('mapDispatchToProps');
   return {
     add: (name) => {
       dispatch(addPlace(name))
-    
+    },
+    remove: (placeId) => {
+      dispatch(removePlace(placeId))
     }
-  //   remove: (placeId) => {
-  //     dispatch(removePlace(placeId))
-  // }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
