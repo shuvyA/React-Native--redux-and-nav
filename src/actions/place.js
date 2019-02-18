@@ -6,7 +6,6 @@ import _ from 'lodash';
 export const addPlace = placeName => {
   return {
     type: ADD_PLACE,
-    id: _.uniqueId('todo_'),
     payload: placeName
   }
 }
@@ -22,7 +21,7 @@ export const removePlace = placeId => {
 
 export const toggleTodo = placeId => {
   return {
-    type: 'TOGGLE_TODO',
+    type: TOGGLE_TODO,
     payload: placeId
   }
 }

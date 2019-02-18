@@ -1,6 +1,10 @@
 // placeReducer.js
 
-import { ADD_PLACE, REMOVE_PLACE } from '../actions/types';
+import {
+  ADD_PLACE,
+  REMOVE_PLACE,
+  TOGGLE_TODO
+} from '../actions/types';
 
 import _ from 'lodash';
 
@@ -10,22 +14,40 @@ const initialState = {
 };
 
 const placeReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case ADD_PLACE:
       return {
         ...state,
         places: state.places.concat({
           key: _.uniqueId('todo_'),
-          value: action.payload
+          value: action.payload,
+          completed: false
         })
       };
-      case REMOVE_PLACE:
-      // console.log(state.places,'state places');
-      // console.log('Store del id:',action.payload);
-      return{
+    case REMOVE_PLACE:
+      console.log('del todo', action.payload);
+      return {
         ...state,
-        places: state.places.filter(place => place.key  !== action.payload)
-      }
+        places: state.places.filter(place => place.key !== action.payload)
+      };
+    case TOGGLE_TODO:
+      console.log('toogle todo', action.payload);
+      console.log({
+        state
+      });
+
+
+      return {
+        ...state,
+        places: state.places.map(todo =>
+          (todo.key === action.payload) ?
+          {
+            ...todo,
+            completed: !todo.completed
+          } :
+          todo
+        )
+      };
     default:
       return state;
   }

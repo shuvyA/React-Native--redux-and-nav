@@ -189,7 +189,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Button, FlatList } from 'react-native';
 import ListItem from './src/components/ListItem';
 import { connect } from 'react-redux';
-import { addPlace , removePlace } from './src/actions/place';
+import { addPlace , removePlace, toggleTodo } from './src/actions/place';
 
 class App extends Component {
   
@@ -210,10 +210,11 @@ class App extends Component {
   }
   
   delItem = (item) => {
-    // console.log('**********************************************');
-    // console.log('del item to app::', item );
     this.props.remove(item)
-    
+  }
+  isDone = (itemId) =>{
+    console.log(this.state,'fsdfdsf');
+    this.props.done(itemId)
   }
   
   placeNameChangeHandler = (value) => {
@@ -229,9 +230,11 @@ class App extends Component {
       keyExtractor={(item, index) => index.toString()}
       renderItem = { info => (
         <ListItem 
+        isDone = {this.isDone}
         delItem = {this.delItem}
-        placeName={ info.item.value }
+        completed = {info.item.completed}
         placeId = { info.item.key}
+        placeName={ info.item.value }
         />
         )}
         />
@@ -298,6 +301,11 @@ const mapDispatchToProps = dispatch => {
     },
     remove: (placeId) => {
       dispatch(removePlace(placeId))
+    },
+    done: (placeId) => {
+      console.log({placeId});
+      
+      dispatch(toggleTodo(placeId))
     }
   }
 }
