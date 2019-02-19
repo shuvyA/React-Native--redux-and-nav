@@ -2,19 +2,19 @@
 
 import React from 'react';
 import { View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
-// import YouTube from 'react-native-youtube';
-// import { YouTubeStandaloneAndroid } from 'react-native-youtube';
+import YouTube from 'react-native-youtube';
+import { YouTubeStandaloneAndroid } from 'react-native-youtube';
 
 // const ListItem = (props) => {
 
 // YouTubeStandaloneAndroid.playVideo({
-    //     apiKey: 'AIzaSyA6XPQr3DPh1yc5SfrLy0dw29KxsRJA4ss',     // Your YouTube Developer API Key
-    //     videoId: 'VfIJSc6KWWk',     // YouTube video ID
-    //     autoplay: true,             // Autoplay the video
-    //     startTime: 120,             // Starting point of video (in seconds)
-    //   })
-    //     .then(() => console.log('Standalone Player Exited'))
-    //     .catch(errorMessage => console.error(errorMessage))
+//         apiKey: 'AIzaSyA6XPQr3DPh1yc5SfrLy0dw29KxsRJA4ss',     // Your YouTube Developer API Key
+//         videoId: 'VfIJSc6KWWk',     // YouTube video ID
+//         autoplay: true,             // Autoplay the video
+//         startTime: 120,             // Starting point of video (in seconds)
+//       })
+//         .then(() => console.log('Standalone Player Exited'))
+//         .catch(errorMessage => console.error(errorMessage))
 
 
     export default class Vod extends React.Component {
@@ -31,7 +31,8 @@ import { View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
                 <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
                     <Text>VOD</Text>
 
-                    {/* <YouTube
+                    <YouTube
+                    apiKey= 'AIzaSyA6XPQr3DPh1yc5SfrLy0dw29KxsRJA4ss'
                     videoId="VfIJSc6KWWk"   // The YouTube video ID
                     play={true}             // control playback of video with true/false
                     fullscreen={true}       // control whether the video should play in fullscreen or inline
@@ -44,7 +45,7 @@ import { View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
  
                     style={{ alignSelf: 'stretch', height: 300 }}
                      />
-                   */}
+                  
                 
 
                 </View>
