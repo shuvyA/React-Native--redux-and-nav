@@ -1,36 +1,37 @@
 // ListItem.js
 
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+// import React from 'react';
+// import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-// const ListItem = (props) => {
+// // const ListItem = (props) => {
 
-    export default class Todos extends React.Component {
-    constructor(props) {
-        super(props);
+//     export default class Todos extends React.Component {
+//     constructor(props) {
+//         super(props);
         
-    }
+//     }
    
-    render(){
-            return (
+//     render(){
+//             return (
 
-        );
-    }
-}
+//         );
+//     }
+// }
 
-const styles = StyleSheet.create({
+// const styles = StyleSheet.create({
   
-});
-
-
+// });
 
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Button, FlatList } from 'react-native';
-import ListItem from './src/components/ListItem';
+import ListItem from './ListItem';
 import { connect } from 'react-redux';
-import { addPlace , removePlace, toggleTodo } from './src/actions/place';
+import { addPlace , removePlace, toggleTodo } from '../actions/place';
 
 class Todos extends Component {
+    static navigationOptions = {
+        title: 'Todos',  
+      };
   
   state = {
     placeName: '',
@@ -48,11 +49,11 @@ class Todos extends Component {
     });
   }
   
-  delItem = (item) => {
-    this.props.remove(item)
+  delItem = (itemId) => {
+    this.props.remove(itemId)
   }
   isDone = (itemId) =>{
-    console.log(this.state,'fsdfdsf');
+    // console.log(this.state,'fsdfdsf');
     this.props.done(itemId)
   }
   
@@ -64,7 +65,7 @@ class Todos extends Component {
   
   placesOutput = () => {
     return (
-      <FlatList style = { styles.listContainer }
+       <FlatList style = { styles.listContainer }
       data = { this.props.places }
       keyExtractor={(item, index) => index.toString()}
       renderItem = { info => (

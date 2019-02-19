@@ -12,6 +12,7 @@
 // import React, {AppRegistry} from 'react-native';
 // import App from './src/containers/app';
 
+
 // AppRegistry.registerComponent('App', () => App);
 
 
@@ -185,91 +186,190 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, Button, FlatList } from 'react-native';
-import ListItem from './src/components/ListItem';
-import { connect } from 'react-redux';
-import { addPlace , removePlace, toggleTodo } from './src/actions/place';
+// import React, { Component } from 'react';
+// import { StyleSheet, View, TextInput, Button, FlatList } from 'react-native';
+// import ListItem from './src/components/ListItem';
+// import { connect } from 'react-redux';
+// import { addPlace , removePlace, toggleTodo } from './src/actions/place';
 
-class App extends Component {
+// class App extends Component {
   
-  state = {
-    placeName: '',
-    places: []
-  }
+//   state = {
+//     placeName: '',
+//     places: []
+//   }
   
-  placeSubmitHandler = () => {
-    if(this.state.placeName.trim() === '') {
-      return;
-    }
-    this.props.add(this.state.placeName);
-    // remove after click Add
-    this.setState({
-      placeName:''
-    });
-  }
+//   placeSubmitHandler = () => {
+//     if(this.state.placeName.trim() === '') {
+//       return;
+//     }
+//     this.props.add(this.state.placeName);
+//     // remove after click Add
+//     this.setState({
+//       placeName:''
+//     });
+//   }
   
-  delItem = (item) => {
-    this.props.remove(item)
-  }
-  isDone = (itemId) =>{
-    console.log(this.state,'fsdfdsf');
-    this.props.done(itemId)
-  }
+//   delItem = (item) => {
+//     this.props.remove(item)
+//   }
+//   isDone = (itemId) =>{
+//     console.log(this.state,'fsdfdsf');
+//     this.props.done(itemId)
+//   }
   
-  placeNameChangeHandler = (value) => {
-    this.setState({
-      placeName: value
-    });    
-  }
+//   placeNameChangeHandler = (value) => {
+//     this.setState({
+//       placeName: value
+//     });    
+//   }
   
-  placesOutput = () => {
-    return (
-      <FlatList style = { styles.listContainer }
-      data = { this.props.places }
-      keyExtractor={(item, index) => index.toString()}
-      renderItem = { info => (
-        <ListItem 
-        isDone = {this.isDone}
-        delItem = {this.delItem}
-        completed = {info.item.completed}
-        placeId = { info.item.key}
-        placeName={ info.item.value }
-        />
-        )}
-        />
-        )
-      }
+//   placesOutput = () => {
+//     return (
+//       <FlatList style = { styles.listContainer }
+//       data = { this.props.places }
+//       keyExtractor={(item, index) => index.toString()}
+//       renderItem = { info => (
+//         <ListItem 
+//         isDone = {this.isDone}
+//         delItem = {this.delItem}
+//         completed = {info.item.completed}
+//         placeId = { info.item.key}
+//         placeName={ info.item.value }
+//         />
+//         )}
+//         />
+//         )
+//       }
       
-      render() {
-        return (
-          <View style={ styles.container }>
-      <View style = { styles.inputContainer }>
-        <TextInput
-          placeholder = "Search Places"
-          style = { styles.placeInput }
-          value = { this.state.placeName }
-          onChangeText = { this.placeNameChangeHandler }
-          ></TextInput>
-        <Button title = 'Add' 
-          style = { styles.placeButton }
-          onPress = { this.placeSubmitHandler }
-          />
-        </View>
-        <View style = { styles.listContainer }>
-          { this.placesOutput() }
-        </View>
+//       render() {
+//         return (
+//           <View style={ styles.container }>
+//       <View style = { styles.inputContainer }>
+//         <TextInput
+//           placeholder = "Search Places"
+//           style = { styles.placeInput }
+//           value = { this.state.placeName }
+//           onChangeText = { this.placeNameChangeHandler }
+//           ></TextInput>
+//         <Button title = 'Add' 
+//           style = { styles.placeButton }
+//           onPress = { this.placeSubmitHandler }
+//           />
+//         </View>
+//         <View style = { styles.listContainer }>
+//           { this.placesOutput() }
+//         </View>
+//       </View>
+//     );
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     paddingTop: 30,
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//   },
+//   inputContainer: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     width: '100%'
+//   },
+//   placeInput: {
+//     width: '70%'
+//   },
+//   placeButton: {
+//     width: '30%'
+//   },
+//   listContainer: {
+//     width: '100%'
+//   }
+// });
+
+// const mapStateToProps = state => {
+  
+//   return {
+//     places: state.places.places
+//   }
+// }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     add: (name) => {
+//       dispatch(addPlace(name))
+//     },
+//     remove: (placeId) => {
+//       dispatch(removePlace(placeId))
+//     },
+//     done: (placeId) => {
+//       console.log({placeId});
+      
+//       dispatch(toggleTodo(placeId))
+//     }
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+import React, {Component} from 'react';
+import Todos from './src/components/Todos';
+import Home from './src/components/Home';
+import Vod from './src/components/Vod';
+import { StyleSheet,Text, View, Button} from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
+
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Home Screen</Text>
       </View>
     );
   }
 }
 
+// const AppNavigator = createStackNavigator({
+//   Home: {
+//     screen: HomeScreen
+//   }
+// });
+
+
+
+const AppNavigator = createStackNavigator(
+  {
+    Home: Home,
+    Vod: Vod,
+    Todos: Todos
+  },
+  {
+    initialRouteName: "Home"
+  }
+  );
+  class App extends Component {
+    
+    
+    render() {
+      return <AppContainer />;
+    }
+  }
+  // export default createAppContainer(AppNavigator);
+  
+  export default createAppContainer(AppNavigator);
 const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -286,75 +386,3 @@ const styles = StyleSheet.create({
     width: '100%'
   }
 });
-
-const mapStateToProps = state => {
-  
-  return {
-    places: state.places.places
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    add: (name) => {
-      dispatch(addPlace(name))
-    },
-    remove: (placeId) => {
-      dispatch(removePlace(placeId))
-    },
-    done: (placeId) => {
-      console.log({placeId});
-      
-      dispatch(toggleTodo(placeId))
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-// import React, {Component} from 'react';
-// import {Platform, StyleSheet, Text, View} from 'react-native';
-
-// const instructions = Platform.select({
-  //   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  //   android:
-  //     'Double tap R on your keyboard to reload,\n' +
-  //     'Shake or press menu button for dev menu',
-  // });
-  
-  // type Props = {};
-  // export default class App extends Component<Props> {
-    //   render() {
-      //     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>Welcome SHuvy to React Native!</Text>
-//         <Text style={styles.instructions}>To get started, edit App.js</Text>
-//         <Text style={styles.instructions}>{instructions}</Text>
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });
