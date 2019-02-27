@@ -322,6 +322,7 @@ import React, {Component} from 'react';
 import Todos from './src/components/Todos';
 import Home from './src/components/Home';
 import Vod from './src/components/Vod';
+import Call from './src/components/Call';
 import WhoAmI from './src/components/student/WhoAmI';
 import Api from './src/components/student/Api';
 import { StyleSheet,Text, View, Button} from 'react-native';
@@ -351,6 +352,7 @@ const AppNavigator = createStackNavigator(
     Vod: Vod,
     WhoAmI: WhoAmI,
     Api:  Api,
+    Call:  Call,
     Todos: Todos
   },
   {

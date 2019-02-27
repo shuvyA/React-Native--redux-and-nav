@@ -41,6 +41,14 @@ import { View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
                      onPress={() => this.props.navigation.navigate('Api')}
                      />    
                      </View>
+                     
+                     <View style = {styles.btn}>
+                     <Button
+                     style = {styles.btn}
+                     title="CALL"
+                     onPress={() => this.props.navigation.navigate('Call')}
+                     />    
+                     </View>
                     
                 
 
