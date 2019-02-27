@@ -322,6 +322,8 @@ import React, {Component} from 'react';
 import Todos from './src/components/Todos';
 import Home from './src/components/Home';
 import Vod from './src/components/Vod';
+import WhoAmI from './src/components/student/WhoAmI';
+import Api from './src/components/student/Api';
 import { StyleSheet,Text, View, Button} from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -347,6 +349,8 @@ const AppNavigator = createStackNavigator(
   {
     Home: Home,
     Vod: Vod,
+    WhoAmI: WhoAmI,
+    Api:  Api,
     Todos: Todos
   },
   {

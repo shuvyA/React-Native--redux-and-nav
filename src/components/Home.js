@@ -17,13 +17,31 @@ import { View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
                     <Text>HOME</Text>
                     <Text>MATRIX</Text>
                     <Button
+                     style = {styles.btn}
                      title="Go to Todos"
                      onPress={() => this.props.navigation.navigate('Todos')}
                      />
+                     <View style = {styles.btn}>
                     <Button
                      title="Go to Youtube"
                      onPress={() => this.props.navigation.navigate('Vod')}
                      />
+                     </View>
+                     <View style = {styles.btn}>
+                     <Button
+                     style = {styles.btn}
+                     title="WhoAmI"
+                     onPress={() => this.props.navigation.navigate('WhoAmI')}
+                     />    
+                     </View>
+                     <View style = {styles.btn}>
+                     <Button
+                     style = {styles.btn}
+                     title="API"
+                     onPress={() => this.props.navigation.navigate('Api')}
+                     />    
+                     </View>
+                    
                 
 
                 </View>
@@ -38,4 +56,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
       },
+      btn:{
+          paddingTop:20
+      }
 });
