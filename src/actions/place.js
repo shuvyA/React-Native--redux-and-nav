@@ -10,7 +10,6 @@ export const addPlace = placeName => {
   }
 }
 
-
 export const removePlace = placeId => {
   return {
     type: REMOVE_PLACE,

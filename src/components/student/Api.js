@@ -6,11 +6,9 @@ import axios from 'axios';
 
 // const ListItem = (props) => {
     
-    
     export default class WhoAmI extends React.Component {
         static navigationOptions = {
             title: 'Api'
-            
         };
 
         state = {
@@ -22,9 +20,6 @@ import axios from 'axios';
             //    this.getApi = this.getApi.bind(this)
         }
         
-        
-        
-        
           yesAndNo =  () => {
             return axios.get('https://yesno.wtf/api')
                .then(res => {
@@ -33,10 +28,8 @@ import axios from 'axios';
                .catch(err => {
                  console.log('error axios:::',err);
                  return err;
-
                } )
            }
-
 
         getApi = async () => {
             const res = await this.yesAndNo();
@@ -45,7 +38,6 @@ import axios from 'axios';
               });
             return await res;
         }
-        
         
         //   https://yesno.wtf/api/
         render(){
@@ -65,11 +57,7 @@ import axios from 'axios';
                      title="axios"
                      onPress={() =>  this.getApi()}
                      />
-                     
-                
-
                 </View>
-
         );
     }
 }

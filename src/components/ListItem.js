@@ -8,7 +8,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
     export default class ListItem extends React.Component {
     constructor(props) {
         super(props);
-        console.log({ props });
+        // console.log({ props });
         
     }
    
