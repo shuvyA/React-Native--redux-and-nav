@@ -25,16 +25,16 @@ const placeReducer = (state = initialState, action) => {
         })
       };
     case REMOVE_PLACE:
-      console.log('del todo', action.payload);
+      // console.log('del todo', action.payload);
       return {
         ...state,
         places: state.places.filter(place => place.key !== action.payload)
       };
     case TOGGLE_TODO:
-      console.log('toogle todo', action.payload);
-      console.log({
-        state
-      });
+      // console.log('toogle todo', action.payload);
+      // console.log({
+      //   state
+      // });
 
 
       return {

@@ -128,8 +128,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  console.log('mapStateToProps');
-  
   return {
     places: state.places.places
   }
