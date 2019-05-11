@@ -8,7 +8,7 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
 // const ListItem = (props) => {
 
 // YouTubeStandaloneAndroid.playVideo({
-//         apiKey: 'AIzaSyA6XPQr3DPh1yc5SfrLy0dw29KxsRJA4ss',     // Your YouTube Developer API Key
+//         apiKey: '',     // Your YouTube Developer API Key
 //         videoId: 'VfIJSc6KWWk',     // YouTube video ID
 //         autoplay: true,             // Autoplay the video
 //         startTime: 120,             // Starting point of video (in seconds)
@@ -32,7 +32,7 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
                     <Text>VOD</Text>
 
                     <YouTube
-                    apiKey= 'AIzaSyA6XPQr3DPh1yc5SfrLy0dw29KxsRJA4ss'
+                    apiKey= ''
                     videoId="VfIJSc6KWWk"   // The YouTube video ID
                     play={true}             // control playback of video with true/false
                     fullscreen={true}       // control whether the video should play in fullscreen or inline
